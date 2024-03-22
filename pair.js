@@ -65,7 +65,7 @@ router.get('/', async (req, res) => {
         return await removeFile('./temp/'+id);
             } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
                     await delay(10000);
-                    SIGMA_MD_PAIR_CODE();
+                    SAKURA_MD_PAIR_CODE();
                 }
             });
         } catch (err) {
