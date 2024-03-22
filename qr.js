@@ -58,7 +58,7 @@ router.get('/', async (req, res) => {
 				   let b64data = Buffer.from(data).toString('base64');
 				   let session = await Qr_Code_By_DarkYasiya.sendMessage(Qr_Code_By_DarkYasiya.user.id, { text: 'SAKURA-MD;;;' + b64data });
 	
-				   let SIGMA_MD_TEXT = "`Do not share this code with others. use this to create the SAKURA-MD\n\n`"
+				   let SAKURA_MD_TEXT = "`Do not share this code with others. use this to create the SAKURA-MD\n\n`"
 	 await Qr_Code_By_DarkYasiya.sendMessage(Qr_Code_By_DarkYasiya.user.id,{text:SAKURA_MD_TEXT},{quoted:session})
 
 
