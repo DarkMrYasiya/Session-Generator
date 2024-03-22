@@ -184,8 +184,8 @@
     b.addEventListener("click", async (e) => {
       e.preventDefault();
       if (!c.value) {
-        a.innerHTML = '<a style="color:white;font-weight:bold">Enter your WhatsApp number with a country code</a><br><br>';
-        a.innerHTML = '<a style="color:green;font-weight:bold">Ex : 94743548986</a><br><br>';
+        a.innerHTML = '<a style="color:white;font-weight:bold">Enter your WhatsApp number with a country code</a><br>';
+        a.innerHTML = '<a style="color:#00cc00;font-weight:bold">Ex : 94743548986</a><br><br>';
       } else if (c.value.replace(/[^0-9]/g, "").length < 11) {
         a.innerHTML = '<a style="color:red;font-weight:bold">Invalid number</a><br><br>';
       } else {
