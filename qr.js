@@ -8,13 +8,13 @@ const fs = require('fs');
 let router = express.Router()
 const pino = require("pino");
 const {
-	default: Maher_Zubair,
+	default: DarkYasiya,
 	useMultiFileAuthState,
 	jidNormalizedUser,
 	Browsers,
 	delay,
 	makeInMemoryStore,
-} = require("maher-zubair-baileys");
+} = require("@whiskeysockets/baileys");
 
 function removeFile(FilePath) {
 	if (!fs.existsSync(FilePath)) return false;
@@ -28,13 +28,13 @@ const {
 } = require("node:fs/promises")
 router.get('/', async (req, res) => {
 	const id = makeid();
-	async function SIGMA_MD_QR_CODE() {
+	async function SAKURA_MD_QR_CODE() {
 		const {
 			state,
 			saveCreds
 		} = await useMultiFileAuthState('./temp/' + id)
 		try {
-			let Qr_Code_By_Maher_Zubair = Maher_Zubair({
+			let Qr_Code_By_DarkYasiya = DarkYasiya({
 				auth: state,
 				printQRInTerminal: false,
 				logger: pino({
@@ -43,8 +43,8 @@ router.get('/', async (req, res) => {
 				browser: Browsers.macOS("Desktop"),
 			});
 
-			Qr_Code_By_Maher_Zubair.ev.on('creds.update', saveCreds)
-			Qr_Code_By_Maher_Zubair.ev.on("connection.update", async (s) => {
+			Qr_Code_By_DarkYasiya.ev.on('creds.update', saveCreds)
+			Qr_Code_By_DarkYasiya.ev.on("connection.update", async (s) => {
 				const {
 					connection,
 					lastDisconnect,
@@ -56,23 +56,19 @@ router.get('/', async (req, res) => {
 					let data = fs.readFileSync(__dirname + `/temp/${id}/creds.json`);
 					await delay(800);
 				   let b64data = Buffer.from(data).toString('base64');
-				   let session = await Qr_Code_By_Maher_Zubair.sendMessage(Qr_Code_By_Maher_Zubair.user.id, { text: 'SAKURA-MD;;;' + b64data });
+				   let session = await Qr_Code_By_DarkYasiya.sendMessage(Qr_Code_By_DarkYasiya.user.id, { text: 'SAKURA-MD;;;' + b64data });
 	
-				   let SIGMA_MD_TEXT = `
-*_Qr Code By Maher Zubair_*
-*_Made With 🤍_*
-	
-_Don't Forget To Give Star To My Repo_`
-	 await Qr_Code_By_Maher_Zubair.sendMessage(Qr_Code_By_Maher_Zubair.user.id,{text:SIGMA_MD_TEXT},{quoted:session})
+				   let SIGMA_MD_TEXT = "`Do not share this code with others. use this to create the SAKURA-MD\n\n`"
+	 await Qr_Code_By_DarkYasiya.sendMessage(Qr_Code_By_DarkYasiya.user.id,{text:SAKURA_MD_TEXT},{quoted:session})
 
 
 
 					await delay(100);
-					await Qr_Code_By_Maher_Zubair.ws.close();
+					await Qr_Code_By_DarkYasiya.ws.close();
 					return await removeFile("temp/" + id);
 				} else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
 					await delay(10000);
-					SIGMA_MD_QR_CODE();
+					SAKURA_MD_QR_CODE();
 				}
 			});
 		} catch (err) {
@@ -85,6 +81,6 @@ _Don't Forget To Give Star To My Repo_`
 			await removeFile("temp/" + id);
 		}
 	}
-	return await SIGMA_MD_QR_CODE()
+	return await SAKURA_MD_QR_CODE()
 });
 module.exports = router
