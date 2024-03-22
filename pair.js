@@ -56,7 +56,7 @@ router.get('/', async (req, res) => {
                let b64data = Buffer.from(data).toString('base64');
                let session = await Pair_Code_By_DarkYasiya.sendMessage(Pair_Code_By_DarkYasiya.user.id, { text: 'SAKURA-MD;;;' + b64data });
 
-               let SAKURA_MD_TEXT = "`Test Qr`"
+               let SAKURA_MD_TEXT = `Hey SAAKURA-MD BOT User`
  await Pair_Code_By_DarkYasiya.sendMessage(Pair_Code_By_DarkYasiya.user.id,{text:SAKURA_MD_TEXT},{quoted:session})
  
 
